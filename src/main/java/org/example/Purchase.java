@@ -41,12 +41,11 @@ public class Purchase {
     @Test(dataProvider = "loginData")
     public void testLogin(String username, String password) throws IOException {
         // Find username and password fields and login button
-        driver.findElement(By.xpath("//input[@id='user-name']")).sendKeys(username); // Replace with the actual ID
-        driver.findElement(By.xpath("//input[@id='password']")).sendKeys(password); // Replace with the actual ID
-        driver.findElement(By.xpath("//input[@id='login-button']")).click(); // Replace with the actual ID
+        driver.findElement(By.xpath("//input[@id='user-name']")).sendKeys(username);
+        driver.findElement(By.xpath("//input[@id='password']")).sendKeys(password); 
+        driver.findElement(By.xpath("//input[@id='login-button']")).click(); 
 
-        // Validate the login success
-        // This will depend on your application. Example:
+    
         String expectedUrl = "https://qa-challenge.codesubmit.io/inventory.html";
         Assert.assertEquals(driver.getCurrentUrl(), expectedUrl, "Login failed for user: " + username);
         driver.findElement(By.xpath("//button[@id='add-to-cart-sauce-labs-backpack']")).click();
@@ -71,10 +70,10 @@ public class Purchase {
 
 
     }
-//    @AfterClass
-//    public void tearDown() {
-//        driver.quit();
-//    }
+   @AfterClass
+    public void tearDown() {
+    driver.quit();
+    }
 
 }
 
