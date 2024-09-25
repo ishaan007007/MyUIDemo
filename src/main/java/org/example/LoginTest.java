@@ -45,16 +45,14 @@ public class LoginTest {
     @Test(dataProvider = "loginData")
     public void testLogin(String username, String password) {
         // Find username and password fields and login button
-        driver.findElement(By.xpath("//input[@id='user-name']")).sendKeys(username); // Replace with the actual ID
-        driver.findElement(By.xpath("//input[@id='password']")).sendKeys(password); // Replace with the actual ID
-        driver.findElement(By.xpath("//input[@id='login-button']")).click(); // Replace with the actual ID
-
-        // Validate the login success
-        // This will depend on your application. Example:
+        driver.findElement(By.xpath("//input[@id='user-name']")).sendKeys(username);
+        driver.findElement(By.xpath("//input[@id='password']")).sendKeys(password); 
+        driver.findElement(By.xpath("//input[@id='login-button']")).click(); 
+     
         String expectedUrl = "https://qa-challenge.codesubmit.io/inventory.html";
         Assert.assertEquals(driver.getCurrentUrl(), expectedUrl, "Login failed for user: " + username);
 
-        // Optionally, log out after each login
+       
         driver.findElement(By.xpath("//button[@id='react-burger-menu-btn']")).click();
 
 
